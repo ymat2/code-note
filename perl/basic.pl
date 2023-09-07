@@ -99,9 +99,17 @@ until ($i > 7) {
 
 
 print("##### FUNCTION #####\n");
-sub hypo {
-    my ($x, $y) = @_;
-    return sqrt($x**2 + $y**2);
+sub cube {
+    my $i = shift;
+    return $i**3;
 }
+print(cube(3) . "\n")
 
-print(hypo(3, 4) . "\n");
+print(&calcAverage(10, 8) . "\n");
+&calcAverage(5, 17);
+
+sub calcAverage{
+  my $ave;
+  $ave = ($_[0] + $_[1]) / 2;
+  return $ave;
+}

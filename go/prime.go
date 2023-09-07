@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	var n = 100000
 	var cnt = 0
@@ -10,7 +12,7 @@ func main() {
 			continue
 		}
 	}
-	println(cnt)
+	fmt.Println(cnt)
 }
 
 func is_prime(n int) bool {

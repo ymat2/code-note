@@ -1,27 +1,35 @@
 package main
+
+import "fmt"
+
 func main() {
 	/*Standard out*/
-	println("Hello, world")
+	fmt.Println("Hello, world")
 
 	/*Declaring variables*/
 	var name string = "John"
 	var i = 3
 	j := 4
-	println("My name is" + name)
-	println(i*j)
+	fmt.Println("My name is" + name)
+	fmt.Println(i*j)
 
 	/*AND-OR*/
-	if (true && false) {println("true and false")}
-	if (true || false) {println("true or false")}
-	if (true && !true) {println("true and not true")}
-	if (true || !true) {println("true or not true")}
+	if (true && false) {fmt.Println("true and false")}
+	if (true || false) {fmt.Println("true or false")}
+	if (true && !true) {fmt.Println("true and not true")}
+	if (true || !true) {fmt.Println("true or not true")}
 
 	k := 8
-	println(ifelse(k))
+	fmt.Println(ifelse(k))
 
 	n := 3
-	println(swtch(n))
-	println(even_or_odd(n))
+	fmt.Println(swtch(n))
+	fmt.Println(even_or_odd(n))
+
+	/*Looping*/
+	for i:=0; i<5; i++ {
+		fmt.Println(i, "Hello, world")
+	}
 
 }
 
