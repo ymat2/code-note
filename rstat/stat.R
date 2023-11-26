@@ -84,3 +84,17 @@ shapiro.test(v)
 shapiro.test(w)
 var.test(v, w)
 wilcox.test(v, w)
+
+
+## Chi-squared test vs Fisher's Exact Test
+df = data.frame(
+  gene.not.interest=c(2613, 15310),
+  gene.in.interest=c(28, 29)
+)
+row.names(df) = c("In_category", "not_in_category")
+
+chi_sq = chisq.test(df)
+print(chi_sq)
+
+fish = fisher.test(df)
+print(fish)

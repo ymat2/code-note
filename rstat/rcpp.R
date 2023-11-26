@@ -1,5 +1,11 @@
+library(conflicted)
+library(tidyverse)
 library(Rcpp)
 
+## Get Flags
+Rcpp:::CxxFlags() |> print()
+
+## General usage
 r_for = function(n) {
   s = 0
   for (i in seq(1,n)) {
