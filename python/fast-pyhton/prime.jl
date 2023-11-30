@@ -3,7 +3,7 @@ function isPrime(n::Int64)
   for i in 2:n-1
     if n % i == 0
       bool_ = false
-  break
+      break
     end
   end
   return bool_
