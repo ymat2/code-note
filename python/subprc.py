@@ -1,3 +1,3 @@
 import subprocess as sp
 
-sp.run(['ls','-al'])
+sp.run(["ls", "-al"])
