@@ -1,11 +1,11 @@
 package main
 import(
-  "fmt"
-  "strings"
+    "fmt"
+    "strings"
 )
 
 func main() {
-  fmt.Println(strings.Count("Cheese", "e"))
-	fmt.Println(strings.Count("Cheese", "ee"))
-  fmt.Println(strings.Count("Cheeese", "ee"))
+    fmt.Println(strings.Count("Cheese", "e"))
+    fmt.Println(strings.Count("Cheese", "ee"))
+    fmt.Println(strings.Count("Cheeese", "ee"))
 }

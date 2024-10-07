@@ -1,10 +1,10 @@
 package main
 import (
-	"fmt"
-	"math"
+    "fmt"
+    "math"
 )
 
 func main() {
-	var arr = [10]int{math.Pow(2, 31)-1};
-	fmt.Println(arr);
+    var arr = [10]int{math.Pow(2, 31)-1};
+    fmt.Println(arr);
 }
