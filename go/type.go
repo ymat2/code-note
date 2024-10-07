@@ -1,8 +1,10 @@
 package main
 
 import (
+    "bufio"
     "fmt"
     "math/rand"
+    "os"
     "time"
 )
 
@@ -42,30 +44,27 @@ func main() {
 }
 
 func generate_random_word() string {
-    word_list := []string {
-        "function", "variable", "constant", "loop", "condition",
-        "array", "object", "class", "method", "inheritance",
-        "polymorphism", "encapsulation", "constructor", "destructor",
-        "recursion", "pointer", "reference", "argument", "parameter",
-        "return", "value", "error", "exception", "try", "catch",
-        "throw", "finally", "initialize", "iterate", "compile",
-        "execute", "syntax", "semantic", "statement", "expression",
-        "operator", "operand", "module", "package", "import", "export",
-        "interface", "abstract", "override", "overload", "static",
-        "dynamic", "null", "boolean", "integer", "float", "string",
-        "char", "double", "byte", "enum", "struct", "union", "typedef",
-        "library", "framework", "dependency", "thread", "process",
-        "queue", "stack", "heap", "tree", "graph", "hash", "map",
-        "set", "key", "value", "algorithm", "search", "sort", "filter",
-        "merge", "split", "concat", "shift", "pop", "push", "insert",
-        "delete", "update", "query", "index", "lock", "unlock",
-        "synchronize", "allocate", "free", "bind", "connect",
-        "disconnect", "read", "write", "input", "output", "encode",
-        "decode", "python", "apptainer", "{", "}", "(", ")", "&", "$",
-    }
-
+    word_list := get_file_contents("words.list")
     rand.Seed(time.Now().UnixNano())
     randomWord := word_list[rand.Intn(len(word_list))]
-
     return randomWord
+}
+
+func get_file_contents(file_name string) []string {
+    var file_contents []string
+    file, err := os.Open(file_name)
+    if err != nil {
+        fmt.Println("Error opening file:", err)
+        os.Exit(1)
+    }
+    defer file.Close()
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        word := scanner.Text()
+        file_contents = append(file_contents, word)
+    }
+    if err := scanner.Err(); err != nil {
+        fmt.Println("Error reading file:", err)
+    }
+    return file_contents
 }
