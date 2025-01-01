@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-    var my_name string = "Yuki"
+    var my_name string = "Taro"
     msg := mygo.Hello(my_name)
     fmt.Println(msg)
 }

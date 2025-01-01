@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "flag"  // package to parse command-line arguments
+    "os"
 )
 
 func main() {
@@ -17,4 +18,5 @@ func main() {
 
     // use pointer (*) in flagType, value in TypeVar
     fmt.Println(*name, age)
+    fmt.Println(os.Args[1])
 }
