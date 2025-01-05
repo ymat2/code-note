@@ -1,7 +1,15 @@
+import argparse
 import gzip
 
-file_path = "test/sample.tsv.gz"
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--input")
+args = parser.parse_args()
 
-with gzip.open(file_path, 'rt') as f:
+if args.input.lower().endswith(".gz"):
+    handler = gzip.open
+else:
+    handler = open
+
+with handler(args.input, 'rt') as f:
     for line in f:
         print(line.rstrip("\n"))
