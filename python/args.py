@@ -2,7 +2,10 @@ import argparse
 
 
 def main():
-    psr = argparse.ArgumentParser()
+    psr = argparse.ArgumentParser(
+        description="This is description.",
+        usage = "This is usage."
+    )
     psr.add_argument("arg1", help="positional argument, required")
     psr.add_argument("-a", "--alpha", help="basic format of optional argument")
     psr.add_argument("--default_value", default="Hello")
