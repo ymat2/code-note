@@ -9,7 +9,6 @@ logging モジュールを使ったログレベルのコントロール
 
 import argparse
 import sys
-
 from logging import getLogger
 
 
@@ -18,15 +17,18 @@ logger = getLogger(__name__)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--vervose", default=1, type=int)
-    parser.add_argument("-i", "--input")
+    parser.add_argument("--verbose", default=0, type=int,
+                        help="Set verbosity level (2:DEBUG, 1:INFO, 0:WARNING, -1:ERROR, -2:CRITICAL)")
+    parser.add_argument("-i", "--input", type=int)
     args = parser.parse_args()
 
-    log_config(args.vervose)
+    log_config(args.verbose)
 
     logger.info("function `twice()` started.")
-    if type(args.input) != int:
-        logger.warning("Input type in not integer!!")
+    if args.input < 10:
+        msg = ["Input number is less than 10."]
+        msg.append("Please input number larger than 10.")
+        logger.warning("\n".join(msg))
     answer = twice(args.input)
     logger.info("function `twice()` ended.")
     print(answer)
@@ -35,15 +37,15 @@ def main():
 def log_config(ll: int) -> None:
     from logging import basicConfig, DEBUG, INFO, WARNING, ERROR, CRITICAL
     _log_levels = {
-        -1: DEBUG,
-        0: INFO,
-        1: WARNING,
-        2: ERROR,
-        3: CRITICAL
+        2: DEBUG,
+        1: INFO,
+        0: WARNING,
+        -1: ERROR,
+        -2: CRITICAL
     }
     basicConfig(
         format='%(levelname)s: %(message)s (%(filename)s)',
-        level=_log_levels[ll],
+        level=_log_levels.get(ll),
         stream=sys.stderr
     )
 
