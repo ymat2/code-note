@@ -1,2 +1,1 @@
-# code-note
-Scribbles of programing languages and commandline tools.
+# Scribbles of programing languages and commandline tools.
